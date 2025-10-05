@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-primary to-blue-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ page.title }}</h1>
+        {% if page.intro %}
+            <div class="text-xl max-w-3xl mx-auto">
+                {{ page.intro|richtext }}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Portfolio Grid -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if projects %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for project in projects %}
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        {% if project.specific.featured_image %}
+                            {% image project.specific.featured_image fill-400x250 class="w-full h-48 object-cover" %}
+                        {% else %}
+                            <div class="w-full h-48 bg-gradient-to-br from-primary to-blue-800 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold text-gray-900">
+                                    <a href="{{ project.url }}" class="hover:text-primary transition duration-200">
+                                        {{ project.title }}
+                                    </a>
+                                </h3>
+                                {% if project.specific.completion_date %}
+                                    <span class="text-sm text-gray-500">
+                                        {{ project.specific.completion_date|date:"M Y" }}
+                                    </span>
+                                {% endif %}
+                            </div>
+                            
+                            {% if project.specific.client_name %}
+                                <p class="text-primary font-medium mb-2">{{ project.specific.client_name }}</p>
+                            {% endif %}
+                            
+                            {% if project.specific.project_type %}
+                                <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mb-3">
+                                    {{ project.specific.project_type }}
+                                </span>
+                            {% endif %}
+                            
+                            {% if project.specific.description %}
+                                <div class="text-gray-600 mb-4 line-clamp-3">
+                                    {{ project.specific.description|richtext|truncatewords:15 }}
+                                </div>
+                            {% endif %}
+                            
+                            <a href="{{ project.url }}" class="w-full bg-primary hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition duration-300 text-center block">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-12">
+                <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No projects yet</h3>
+                <p class="text-gray-500">Check back soon for our latest project showcases.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <p class="text-xl text-gray-600">Trusted by businesses across Kenya</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Sample testimonials - these would be dynamic from the testimonial snippet -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold">JD</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">John Doe</h4>
+                        <p class="text-gray-600 text-sm">CEO, Sample Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Infortex Solutions has been our logistics partner for over 3 years. Their reliability and professionalism are unmatched."</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold">SM</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Sarah Mwangi</h4>
+                        <p class="text-gray-600 text-sm">Operations Manager</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Excellent service and competitive pricing. They handle our supply chain logistics with great efficiency."</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold">PK</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Peter Kariuki</h4>
+                        <p class="text-gray-600 text-sm">Logistics Director</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Professional team that understands the Kenya market. Highly recommend their warehousing services."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-16 bg-primary text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+        <p class="text-xl mb-8">Let's discuss how we can help solve your logistics challenges.</p>
+        <a href="/contact/" class="bg-accent hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300">
+            Get Started
+        </a>
+    </div>
+</section>
+
+{% endblock content %}

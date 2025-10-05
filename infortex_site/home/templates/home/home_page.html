@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-primary to-blue-800 text-white">
+    {% if page.hero_image %}
+        {% image page.hero_image fill-1920x800 as hero_img %}
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ hero_img.url }}')"></div>
+    {% endif %}
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                {{ page.hero_title }}
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                {{ page.hero_subtitle }}
+            </p>
+            <div class="space-x-4">
+                <a href="{{ page.hero_cta_url }}" class="bg-accent hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300">
+                    {{ page.hero_cta_text }}
+                </a>
+                <a href="/services/" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg text-lg font-semibold transition duration-300">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {{ page.services_title }}
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                {{ page.services_subtitle }}
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service Card 1 -->
+            <div class="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Freight Transport</h3>
+                <p class="text-gray-600">Reliable cargo transportation across Kenya and East Africa with real-time tracking.</p>
+            </div>
+            
+            <!-- Service Card 2 -->
+            <div class="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h1.586a1 1 0 01.707.293l1.414 1.414a1 1 0 00.707.293H19a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Warehousing</h3>
+                <p class="text-gray-600">Secure storage solutions with inventory management and distribution services.</p>
+            </div>
+            
+            <!-- Service Card 3 -->
+            <div class="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Express Delivery</h3>
+                <p class="text-gray-600">Fast and efficient delivery services for urgent shipments and time-sensitive cargo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    {{ page.about_title }}
+                </h2>
+                <div class="text-gray-600 mb-8">
+                    {{ page.about_content|richtext }}
+                </div>
+                <a href="/about/" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300">
+                    Learn More About Us
+                </a>
+            </div>
+            <div>
+                {% if page.about_image %}
+                    {% image page.about_image fill-600x400 class="rounded-lg shadow-lg" %}
+                {% else %}
+                    <img src="/media/images/shared image (13).jpg" alt="About Infortex Solutions" class="rounded-lg shadow-lg w-full">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="py-16 bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">{{ page.years_experience }}+</div>
+                <div class="text-blue-200">Years Experience</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">{{ page.satisfied_clients }}+</div>
+                <div class="text-blue-200">Satisfied Clients</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">{{ page.deliveries_completed|floatformat:0 }}+</div>
+                <div class="text-blue-200">Deliveries Completed</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">{{ page.coverage_areas }}</div>
+                <div class="text-blue-200">Coverage Areas</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-16 bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {{ page.cta_title }}
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+            {{ page.cta_subtitle }}
+        </p>
+        <a href="/contact/" class="bg-accent hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300">
+            {{ page.cta_button_text }}
+        </a>
+    </div>
+</section>
+
+{% endblock content %}

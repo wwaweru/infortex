@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-primary to-blue-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ page.title }}</h1>
+        {% if page.intro %}
+            <div class="text-xl max-w-3xl mx-auto">
+                {{ page.intro|richtext }}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if services %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for service in services %}
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        {% if service.specific.service_image %}
+                            {% image service.specific.service_image fill-400x250 class="w-full h-48 object-cover" %}
+                        {% else %}
+                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                                <a href="{{ service.url }}" class="hover:text-primary transition duration-200">
+                                    {{ service.title }}
+                                </a>
+                            </h3>
+                            
+                            {% if service.specific.description %}
+                                <div class="text-gray-600 mb-4 line-clamp-3">
+                                    {{ service.specific.description|richtext|truncatewords:20 }}
+                                </div>
+                            {% endif %}
+                            
+                            <div class="flex justify-between items-center mb-4">
+                                {% if service.specific.price_starting_from %}
+                                    <span class="text-lg font-semibold text-primary">
+                                        From KSh {{ service.specific.price_starting_from|floatformat:0 }}
+                                    </span>
+                                {% endif %}
+                                
+                                {% if service.specific.duration %}
+                                    <span class="text-sm text-gray-500">
+                                        {{ service.specific.duration }}
+                                    </span>
+                                {% endif %}
+                            </div>
+                            
+                            <a href="{{ service.url }}" class="w-full bg-primary hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition duration-300 text-center block">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-12">
+                <p class="text-gray-500 text-lg">No services available at the moment.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Need Custom Logistics Solutions?</h2>
+        <p class="text-xl text-gray-600 mb-8">Contact us to discuss your specific requirements and get a tailored quote.</p>
+        <a href="/contact/" class="bg-accent hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300">
+            Get Custom Quote
+        </a>
+    </div>
+</section>
+
+{% endblock content %}
