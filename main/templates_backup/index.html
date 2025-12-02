@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Infortex Solution Limited | Customs Clearing & Freight Forwarding Kenya{% endblock %}
+
+{% block header_content %}
+<!-- mainemenu begin -->
+<ul id="mainmenu">
+    <li><a class="menu-item" href="{% url 'home' %}">Home</a></li>
+    <!-- Temporarily disabled navigation links - pages retained for future use -->
+    <!--
+    <li><a class="menu-item" href="{% url 'services' %}">Services</a></li>
+    <li><a class="menu-item" href="#">Company</a>
+        <ul>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'team' %}">Our Team</a></li>
+            <li><a href="{% url 'certifications' %}">Certifications</a></li>
+            <li><a href="{% url 'careers' %}">Careers</a></li>
+        </ul>
+    </li>
+    <li><a class="menu-item" href="{% url 'blog' %}">Blog</a></li>
+    <li><a class="menu-item" href="{% url 'contact' %}">Contact</a></li>
+    -->
+</ul>
+<!-- mainmenu end -->
+{% endblock %}
+
+{% block content %}
+<!-- content begin -->
+<div class="no-bottom no-top" id="content">
+
+    <div id="top"></div>
+
+    <section id="section-intro" class="section-dark text-light no-top no-bottom relative overflow-hidden z-1000">
+        <div class="mh-800 relative">
+            <!-- Dark overlay for better text contrast -->
+            <div class="abs w-100 h-100 z-1" style="background: rgba(0,0,0,0.6);"></div>
+            
+            <div class="abs w-80 abs-middle z-2 w-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="spacer-double"></div>
+                        <div class="col-lg-12">
+                            <div class="text-start">
+                                <h1 class="fs-120 fs-sm-10vw mb-0 text-uppercase split text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Licensed</h1>
+                            </div>
+                            <div class="text-lg-end">
+                                <h1 class="fs-120 fs-sm-10vw text-uppercase mb-4 split text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-wow-delay="1s">Customs</h1>
+                            </div>                                    
+                        </div>
+
+                        <div class="col-lg-6 offset-lg-1">
+                            <div class="backdrop-filter-blur p-5 rounded-3" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px);">
+                                <p class="lead mb-4 text-white fw-light" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Licensed customs clearing and freight forwarding across Kenya. From Mombasa Port to JKIA and Nairobi ICD, we deliver compliant multimodal logistics with real-time visibility.</p>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start p-3" style="background: rgba(255,255,255,0.1); border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                            <i class="icon-location text-color-primary fs-28 me-3 mt-1"></i>
+                                            <div>
+                                                <h6 class="text-white mb-1 fw-semibold">Live Tracking</h6>
+                                                <p class="text-light small mb-0 opacity-75">GPS-enabled real-time location updates</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start p-3" style="background: rgba(255,255,255,0.1); border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                            <i class="icon-shield text-color-primary fs-28 me-3 mt-1"></i>
+                                            <div>
+                                                <h6 class="text-white mb-1 fw-semibold">Secure Transit</h6>
+                                                <p class="text-light small mb-0 opacity-75">End-to-end cargo protection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <a class="btn-main btn-lg px-4 py-3" href="#track" style="background: linear-gradient(45deg, #ff6b35, #f7931e); border: none; border-radius: 25px; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);"><span class="fw-semibold">Track Your Shipment</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="swiper-inner" data-bgimage="url({% static 'images/slider/c1.webp' %})">
+                        <div class="sw-overlay op-3"></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="swiper-inner" data-bgimage="url({% static 'images/slider/c2.webp' %})">
+                        <div class="sw-overlay op-3"></div>
+                    </div>
+                </div>
+                <!-- Slides -->
+              </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark text-light">
+        <div class="container-fluid">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <div class="bg-color p-4 text-center" style="min-height: 250px;">
+                        <h4 class="text-white">Infortex Advantage</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-dark p-4 text-center d-flex flex-column justify-content-center" style="min-height: 250px;">
+                        <i class="icon-map text-color-primary fs-40 mb-3 d-block"></i>
+                        <h6 class="mb-2">Real-Time Tracking</h6>
+                        <p class="text-gray small mb-0">Monitor cargo location and delivery status with GPS tracking.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-dark-2 p-4 text-center d-flex flex-column justify-content-center" style="min-height: 250px;">
+                        <i class="icon-clock text-color-primary fs-40 mb-3 d-block"></i>
+                        <h6 class="mb-2">24/7 Monitoring</h6>
+                        <p class="text-gray small mb-0">Round-the-clock surveillance ensuring secure shipments.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-dark p-4 text-center d-flex flex-column justify-content-center" style="min-height: 250px;">
+                        <i class="icon-phone text-color-primary fs-40 mb-3 d-block"></i>
+                        <h6 class="mb-2">Instant Alerts</h6>
+                        <p class="text-gray small mb-0">Immediate notifications for all shipment milestones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="subtitle wow fadeInUp mb-3">Why Choose Infortex</div>
+                    <h2 class="wow fadeInUp mb-5">Complete Logistics Solutions</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.0s">
+                    <div class="de-box-1 bg-white shadow p-4 h-100 text-center">
+                        <i class="icon-compass text-color-primary fs-48 mb-3 d-block"></i>
+                        <h5 class="mb-3">Multi-Modal Transport</h5>
+                        <p class="text-gray mb-0">Seamless integration of air, sea, rail, and road transport for optimal cost and time efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="de-box-1 bg-white shadow p-4 h-100 text-center">
+                        <i class="icon-globe text-color-primary fs-48 mb-3 d-block"></i>
+                        <h5 class="mb-3">Global Network</h5>
+                        <p class="text-gray mb-0">Extensive worldwide network ensuring reliable delivery to over 200+ destinations globally.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="de-box-1 bg-white shadow p-4 h-100 text-center">
+                        <i class="icon-shield text-color-primary fs-48 mb-3 d-block"></i>
+                        <h5 class="mb-3">Cargo Insurance</h5>
+                        <p class="text-gray mb-0">Comprehensive insurance coverage protecting your valuable shipments throughout the entire journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- content close -->
+{% endblock %}
+
+    <section class="bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">Ready to Track Your Next Shipment?</h3>
+                    <p class="lead text-gray mb-0">Join thousands of businesses who trust Infortex for reliable, transparent cargo tracking and logistics solutions.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#track" class="btn-main btn-fullwidth">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% block footer %}
+<!-- footer begin -->
+<footer class="text-light bg-dark-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5>Infortex Logistics</h5>
+                    <p>Your trusted partner for comprehensive cargo tracking and logistics solutions worldwide. Real-time transparency, reliable delivery.</p>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="widget">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-gray">Cargo Tracking</a></li>
+                        <li><a href="#" class="text-gray">Air Freight</a></li>
+                        <li><a href="#" class="text-gray">Ocean Freight</a></li>
+                        <li><a href="#" class="text-gray">Ground Transport</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="widget">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#track" class="text-gray">Track Shipment</a></li>
+                        <li><a href="#" class="text-gray">Get Quote</a></li>
+                        <li><a href="#" class="text-gray">Support</a></li>
+                        <li><a href="#" class="text-gray">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5>Contact Info</h5>
+                    <div class="d-flex mb-2">
+                        <i class="icon-phone text-color-primary me-3 mt-1"></i>
+                        <div>
+                            <strong>24/7 Support</strong><br>
+                            <span class="text-gray">+254714795641</span>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <i class="icon-envelope text-color-primary me-3 mt-1"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <span class="text-gray">info@infortexsolutionsltd.co.ke</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="border-top border-secondary pt-4 mt-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="text-gray mb-0">&copy; 2025 Infortex. All rights reserved.</p>
+                        </div>
+                        <div class="col-lg-6 text-lg-end">
+                            <p class="text-gray mb-0">Secure • Reliable • Transparent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer close -->
+{% endblock %}

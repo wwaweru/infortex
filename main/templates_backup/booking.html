@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book Shipment - Infortex - Transportation, Cargo & Logistics{% endblock %}
+
+{% block header_content %}
+<!-- mainemenu begin -->
+<ul id="mainmenu">
+    <li><a class="menu-item" href="{% url 'home' %}">Home</a></li>
+    <li><a class="menu-item" href="{% url 'services' %}">Services</a></li>
+    <li><a class="menu-item" href="#">Company</a>
+        <ul>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'team' %}">Our Team</a></li>
+            <li><a href="{% url 'certifications' %}">Certifications</a></li>
+            <li><a href="{% url 'careers' %}">Careers</a></li>
+        </ul>
+    </li>
+    <li><a class="menu-item" href="#">Pages</a>
+        <ul>
+            <li><a href="{% url 'track' %}">Track Your Package</a></li>                                    
+            <li><a href="{% url 'booking' %}">Book Shipment</a></li>
+            <li><a href="{% url 'faq' %}">FAQ</a></li>
+            <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+        </ul>
+    </li>
+    <li><a class="menu-item" href="{% url 'blog' %}">Blog</a></li>
+    <li><a class="menu-item" href="{% url 'contact' %}">Contact</a></li>
+</ul>
+<!-- mainmenu end -->
+
+<div class="de-flex-col">
+    <div class="menu_side_area">
+        <a href="{% url 'booking' %}" class="btn-main btn-line fx-slide"><span>Book Shipment</span></a>
+        <span id="menu-btn"></span>
+    </div>
+
+    <div id="btn-extra">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- content begin -->
+<div class="no-bottom no-top" id="content">
+
+    <div id="top"></div>
+
+    <section id="subheader" class="text-light sm-mt-90 relative rounded-1 overflow-hidden m-3" data-bgimage="url({% static 'images/background/3.webp' %}) center">
+        <div class="container relative z-2">
+            <div class="row gy-4 gx-5 align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="split">Book Shipment</h1>
+                    <ul class="crumb wow fadeInUp">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li class="active">Book Shipment</li>
+                    </ul>   
+                </div>
+            </div>
+        </div>
+        <div class="gradient-edge-bottom color op-7 h-80"></div>
+        <div class="sw-overlay op-7"></div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="bg-light p-4 rounded-1">
+                        <h3>Shipment Booking Form</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Origin Country</label>
+                                    <select class="form-control">
+                                        <option>Select Country</option>
+                                        <option>Kenya</option>
+                                        <option>Tanzania</option>
+                                        <option>Uganda</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Destination Country</label>
+                                    <select class="form-control">
+                                        <option>Select Country</option>
+                                        <option>United States</option>
+                                        <option>United Kingdom</option>
+                                        <option>China</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Service Type</label>
+                                    <select class="form-control">
+                                        <option>Select Service</option>
+                                        <option>Air Freight</option>
+                                        <option>Sea Freight</option>
+                                        <option>Road Freight</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Weight (kg)</label>
+                                    <input type="number" class="form-control" placeholder="Enter weight">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Description of Goods</label>
+                                    <textarea class="form-control" rows="3" placeholder="Describe your shipment"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="Enter your email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter your phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Preferred Pickup Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn-main">Get Quote</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="bg-light p-4 rounded-1">
+                        <h4>Quick Quote Calculator</h4>
+                        <p>Get an instant estimate for your shipment costs.</p>
+                        <ul class="ul-check">
+                            <li>Real-time pricing</li>
+                            <li>Multiple service options</li>
+                            <li>Transparent costs</li>
+                            <li>No hidden fees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-color text-light pt-50 pb-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-9">
+                    <h3 class="mb-0 fs-32 split">Ready to Ship Your Cargo Worldwide?</h3>
+                </div>
+                <div class="col-lg-3 text-lg-end">
+                    <a class="btn-main fx-slide btn-line wow fadeInRight" data-wow-delay=".2s" href="{% url 'booking' %}"><span>Book Shipment</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- content close -->
+{% endblock %}
+
+{% block footer %}
+<!-- footer begin -->
+<footer class="text-light section-dark">
+    <div class="container">
+        <div class="row g-4 justify-content-between">
+            <div class="col-md-6">
+                <img src="{% static 'images/logo-white-2.png' %}" class="w-170px mb-2" alt="">
+                <div class="spacer-single"></div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="widget">
+                            <h5>Services</h5>
+                            <ul>                                        
+                                <li><a href="#">Trucking</a></li>
+                                <li><a href="#">Air Freight</a></li>
+                                <li><a href="#">Ship Freight</a></li>
+                                <li><a href="#">Rail Freight</a></li>
+                                <li><a href="#">Warehousing</a></li>
+                                <li><a href="#">Customs Brokerage</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="widget">
+                            <h5>Company</h5>
+                            <ul>                                        
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li><a href="{% url 'team' %}">Our Team</a></li>
+                                <li><a href="{% url 'careers' %}">Careers</a></li>
+                                <li><a href="{% url 'blog' %}">Blog</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-icons mb-sm-30 text-center">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h2>Get in Touch</h2>
+                    <img src="{% static 'images/ui/up-right-arrow.webp' %}" class="w-60px op-5" alt="">
+                </div>
+
+                <div class="widget">
+                    <div class="op-5 fs-15">Email</div>
+                    <h3>contact@infortexsol.com</h3>
+
+                    <div class="spacer-20"></div>      
+
+                    <div class="op-5 fs-15">Phone</div>
+                    <h3>+254 723 456 789</h3>
+
+                    <div class="spacer-20"></div>
+
+                    <div class="op-5 fs-15">Office Location</div>
+                    <h3>7 St, Parklands Nairobi, KE</h3>
+
+                    <div class="spacer-20"></div>
+              
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    Copyright 2025 Infortex Solutions Ltd
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer close -->
+
+<!-- overlay content begin -->
+<div id="extra-wrap" class="text-light">
+    <div id="btn-close">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="extra-content">
+        <img src="{% static 'images/logo-white-2.png' %}" class="w-200px" alt="">
+
+        <div class="spacer-30-line"></div>
+
+        <h5>Our Services</h5>
+        <ul class="ul-check">
+            <li>Trucking</li>
+            <li>Air Fright</li>
+            <li>Ship Freight</li>
+            <li>Rail Freight</li>
+            <li>Warehousing</li>
+            <li>Customs Brokerage</li>
+            <li>Last-Mile Delivery</li>
+            <li>Project Cargo</li>
+        </ul>
+
+        <div class="spacer-30-line"></div>
+
+        <h5>Contact Us</h5>
+        <div><i class="icofont-phone me-2 op-5"></i>+254 723 456 789</div>
+        <div><i class="icofont-location-pin me-2 op-5"></i>7 St, Parklands Nairobi, KE </div>
+        <div><i class="icofont-envelope me-2 op-5"></i>contact@infortexsol.com</div>
+
+        <div class="spacer-30-line"></div>
+
+        <h5>About Us</h5>
+        <p>We are a trusted logistics and cargo solutions provider committed to delivering your goods safely, efficiently, and on time. With years of experience in freight forwarding, warehousing, and international shipping.</p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+</div>
+<!-- overlay content end -->
+{% endblock %}
