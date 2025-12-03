@@ -12,12 +12,9 @@
                                     <li><a class="menu-item" href="#section-services">Services</a>
                                         
                                     </li>
-                                    <li><a class="menu-item" href="#">Company</a>
-                                        <ul>
-                                            <li><a href="{% url 'about' %}">About Us</a></li>
-                                            <li><a href="#">Our Team</a></li>
-                                            <li><a href="#">Certifications</a></li>
-                                            <li><a href="#">Careers</a></li>
+                                    <li><a class="menu-item" href="#section-about">About Us</a></li>
+                                    <li><a class="menu-item" href="#section-faq">FAQ</a></li>
+                                    <li><a class="menu-item" href="#">Contact</a></li>
 </ul>
 <!-- mainmenu end -->
 {% endblock %}
@@ -156,7 +153,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-4">
-                                        <a class="btn-main bg-white text-dark fx-slide w-100" href="track-result.html"><span>Track It</span></a>
+                                        <a class="btn-main bg-white text-dark fx-slide w-100" href="#"><span>Track It</span></a>
                                     </div>
                                 </div>
 
@@ -715,28 +712,24 @@
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="widget">
-                                    <h5>Services</h5>
+                                    <h5>Navigation</h5>
                                     <ul>                                        
-                                        <li><a href="service-single.html">Trucking</a></li>
-                                        <li><a href="service-single.html">Air Freight</a></li>
-                                        <li><a href="service-single.html">Ship Freight</a></li>
-                                        <li><a href="service-single.html">Rail Freight</a></li>
-                                        <li><a href="service-single.html">Warehousing</a></li>
-                                        <li><a href="service-single.html">Customs Brokerage</a></li>
+                                        <li><a href="{% url 'home' %}">Home</a></li>
+                                        <li><a href="#section-services">Services</a></li>
+                                        <li><a href="#section-about">About Us</a></li>
+                                        <li><a href="#section-faq">FAQ</a></li>
+                                        <li><a href="#">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="widget">
-                                    <h5>Company</h5>
+                                    <h5>Quick Links</h5>
                                     <ul>                                        
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="team.html">Our Team</a></li>
-                                        <li><a href="careers.html">Careers</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#section-tracking">Track Package</a></li>
+                                        <li><a href="https://wa.me/254714795641">WhatsApp</a></li>
+                                        <li><a href="#section-why-choose-us">Why Choose Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -845,6 +838,81 @@
     <script src="js/swiper.js"></script>
     <script src="js/custom-swiper-1.js"></script>
     <script src="js/custom-marquee.js"></script>
+
+    <!-- Custom Sticky Navigation Script -->
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling for navigation links
+            $('.menu-item[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.hash);
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+
+            // Active section highlighting
+            $(window).scroll(function() {
+                var scrollPos = $(document).scrollTop() + 100;
+                
+                // Remove active class from all menu items
+                $('.menu-item').removeClass('active');
+                
+                // Check each section
+                $('section[id]').each(function() {
+                    var sectionTop = $(this).offset().top;
+                    var sectionBottom = sectionTop + $(this).outerHeight();
+                    var sectionId = $(this).attr('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                        $('.menu-item[href="#' + sectionId + '"]').addClass('active');
+                    }
+                });
+
+                // Special case for home section (top of page)
+                if (scrollPos < 200) {
+                    $('.menu-item').removeClass('active');
+                    $('.menu-item[href="{% url 'home' %}"]').addClass('active');
+                }
+            });
+
+            // Trigger scroll event on page load
+            $(window).trigger('scroll');
+        });
+    </script>
+
+    <!-- Custom CSS for active navigation -->
+    <style>
+        .menu-item.active {
+            color: var(--color-primary) !important;
+            font-weight: 600;
+        }
+        
+        header.autoshow {
+            position: fixed !important;
+            top: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.autoshow.scrollOn {
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Offset for fixed header */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+    </style>
 
 </body>
 
