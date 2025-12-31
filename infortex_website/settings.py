@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bk8$4s=vrz7)1o5q(9!bm#1uue^bvus9dc17ev11sq+yz^pivs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ec2-13-245-51-229.af-south-1.compute.amazonaws.com', '13.245.51.229', 'infortexsolutionsltd.co.ke', 'www.infortexsolutionsltd.co.ke']
+ALLOWED_HOSTS = ['13.247.42.178', 'infortexsolutionsltd.co.ke', 'www.infortexsolutionsltd.co.ke']
 
 
 # Application definition
